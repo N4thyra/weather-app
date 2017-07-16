@@ -1,0 +1,87 @@
+body {
+  background-color: #a4cfe8;
+}
+
+h1 {
+  text-align: center;
+  color: #fff;
+  padding: 0;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+#head p {
+  font-size: 1.5em;
+  margin-top: 8%;
+  color: #fff;
+}
+
+#strip {
+  background-color: #3f5789;
+  min-height: 15px;
+}
+
+#head {
+  padding-top: 20px;
+  background-color: #a4b1e8;
+  min-height: 200px;
+}
+
+#icon-temp {
+  background-color: #0468a3;
+  border-radius: 50%;
+  height: 150px;
+  width: 150px;
+  margin: 0 auto;
+  position: relative;
+  bottom: 80px;
+  text-align: center;
+  padding-top: 10px;
+}
+
+#icon-temp img {
+  width: 80px;
+  height: 80px;
+}
+
+#icon-temp h3 {
+  margin: 0;
+  color: #ffb600;
+}
+
+#body {
+  min-height: 200px;
+  text-align: center;
+  padding: 0;
+  font-weight: bold;
+  color: #3f5789;
+  bottom: 5em;
+}
+
+#body div{
+  border-top: 1px dotted #c8e6c9;
+  line-height: 3em;
+}
+
+#body span {
+  font-weight: bolder;
+  font-size: 1.75em;
+  padding: 7px;
+  color: #ff4300;
+}
+
+#body div:nth-of-type(even){
+  border-right: 1px dotted #c8e6c9;
+}
+#body div:nth-of-type(even){
+  border-left: 1px dotted #c8e6c9;
+}
+#body div:nth-of-type(odd){
+  border-left: 1px dotted #c8e6c9;
+}
+#body div:nth-last-of-type(1){
+  border-bottom: 1px dotted #c8e6c9;
+}
+#body div:nth-last-of-type(2){
+  border-bottom: 1px dotted #c8e6c9;
+}
