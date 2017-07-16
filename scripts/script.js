@@ -1,6 +1,6 @@
 $(() => {
 
-const apiURL = 'https://crossorigin.me/http://api.openweathermap.org/data/2.5/weather?',
+const apiURL = 'https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?',
       iconURL = 'http://openweathermap.org/img/w/',
       geo = navigator.geolocation,
       celcius = ' °C',
