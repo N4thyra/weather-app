@@ -29,6 +29,28 @@ h1 {
 
 #icon-temp {
   background-color: #0468a3;
+  cursor: pointer;
+  -webkit-transition: background-color 2s ease-in;
+  -moz-transition: background-color 2s ease-in;
+  -o-transition: background-color 2s ease-in;
+  transition: background-color 2s ease-in;
+  border-radius: 50%;
+  height: 150px;
+  width: 150px;
+  margin: 0 auto;
+  position: relative;
+  bottom: 80px;
+  text-align: center;
+  padding-top: 10px;
+}
+
+#icon-temp:hover {
+  background-color: #02a1a1;
+   cursor: pointer;
+   -webkit-transition: background-color 2s ease-out;
+   -moz-transition: background-color 2s ease-out;
+   -o-transition: background-color 2s ease-out;
+   transition: background-color 2s ease-out;
   border-radius: 50%;
   height: 150px;
   width: 150px;

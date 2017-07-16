@@ -3,7 +3,8 @@ $(() => {
 const apiURL = 'https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?',
       iconURL = 'http://openweathermap.org/img/w/',
       geo = navigator.geolocation,
-      celcius = ' °C',
+      celsius = ' °C',
+      fahrenheit = ' °F',
       selTempMax = $('#tempMax'),
       selTempMin = $('#tempMin'),
       selHumidity = $('#humidity'),
@@ -18,6 +19,7 @@ let URL,
     tempMin,
     humidity,
     pressure,
+    unit = true,
     icon;
 
       if(geo) {
@@ -41,14 +43,44 @@ let URL,
         }).done(() => {
           selCity.html(city);
           //tempAverage
-          selTempMax.html(tempMax).append(celcius);
-          selTempMin.html(tempMin).append(celcius);
+          selTempMax.html(tempMax).append(celsius);
+          selTempMin.html(tempMin).append(celsius);
           selHumidity.html(humidity);
           selPressure.html(pressure);
-          selIcon.html(`<img src="${iconURL}${icon}.png"><h3>${tempAverage}${celcius}</h3>`);
+          selIcon.html(`<img src="${iconURL}${icon}.png"><h3>${tempAverage}${celsius}</h3>`);
         });
       }
 
+      selIcon.on("click", () => {
+        changeUnit();
+      });
+
+      function changeUnit() {
+        if(unit) {
+          tempMax = convToFah(tempMax);
+          tempMin = convToFah(tempMin);
+          tempAverage = convToFah(tempAverage);
+          selTempMax.html(tempMax).append(fahrenheit);
+          selTempMin.html(tempMin).append(fahrenheit);
+          selIcon.html(`<img src="${iconURL}${icon}.png"><h3>${tempAverage}${fahrenheit}</h3>`);
+          unit = false;
+        } else {
+          tempMax = convToCel(tempMax);
+          tempMin = convToCel(tempMin);
+          tempAverage = convToCel(tempAverage);
+          selTempMax.html(tempMax).append(celsius);
+          selTempMin.html(tempMin).append(celsius);
+          selIcon.html(`<img src="${iconURL}${icon}.png"><h3>${tempAverage}${celsius}</h3>`);
+          unit = true;
+        }
+      }
+
+      function convToCel(temperature) {
+        return Math.round((temperature - 32) * 5 / 9);
+      }
+      function convToFah(temperature) {
+        return Math.round(temperature * 9 / 5 + 32);
+      }
 
 
 });
