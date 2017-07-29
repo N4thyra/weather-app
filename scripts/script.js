@@ -2,6 +2,7 @@ $(() => {
 
 const apiURL = 'https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?',
       iconURL = 'http://openweathermap.org/img/w/',
+      ipURL = 'http://freegeoip.net/json/',
       geo = navigator.geolocation,
       celsius = ' °C',
       fahrenheit = ' °F',
@@ -22,14 +23,26 @@ let URL,
     unit = true,
     icon;
 
-      if(geo) {
-        geo.getCurrentPosition(({ coords }) => {
-        let { latitude, longitude } = coords;
-        let coordsURL= `lat=${latitude}&lon=${longitude}`;
-        URL = `${apiURL}${coordsURL}&APPID=cfdc05d02854f871e2eae7e3a0988b1f&units=metric`;
-        show();
-      }, error => alert(error.message));
+      // if(geo) {
+      //   geo.getCurrentPosition(({ coords }) => {
+      //   let { latitude, longitude } = coords;
+      //   let coordsURL= `lat=${latitude}&lon=${longitude}`;
+      //   URL = `${apiURL}${coordsURL}&APPID=cfdc05d02854f871e2eae7e3a0988b1f&units=metric`;
+      //   show();
+      // }, error => alert(error.message));
+      // }
+
+      function getLocation() {
+        $.getJSON(ipURL, coords => {
+          let { latitude, longitude } = coords;
+          console.log(latitude, longitude);
+          let coordsURL= `lat=${latitude}&lon=${longitude}`;
+          URL = `${apiURL}${coordsURL}&APPID=cfdc05d02854f871e2eae7e3a0988b1f&units=metric`;
+          show();
+        });
       }
+
+      getLocation();
 
       function show() {
         $.getJSON(URL, data => {
