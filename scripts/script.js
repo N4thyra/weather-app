@@ -2,7 +2,7 @@ $(() => {
 
 const apiURL = 'https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?',
       iconURL = 'http://openweathermap.org/img/w/',
-      ipURL = 'https://cors-anywhere.herokuapp.com/freegeoip.net/json/',
+      ipURL = 'https://cors-anywhere.herokuapp.com/http://freegeoip.net/json/',
       geo = navigator.geolocation,
       celsius = ' °C',
       fahrenheit = ' °F',
